@@ -24,7 +24,8 @@ contract BetCandidate {
     mapping(address => Bet) public allBets;
 
     address owner;
-    uint fee = 10; // % 
+    uint fee = 1000; // 10% na precisão de 4 zeros
+    uint public netPrize;
 
     constructor() {
         owner = msg.sender;
@@ -49,6 +50,38 @@ contract BetCandidate {
         newBet.candidate = candidate;
         newBet.timestamp = block.timestamp;
 
+        allBets[msg.sender] = newBet;
+
+        if(candidate == 1)
+            dispute.total1 += msg.value;
+        else 
+            dispute.total2 += msg.value;
+
+    }
+
+    function finish(uint winner) external {
+        require(msg.sender == owner, "Invalid account");
+        require(winner == 1 || winner == 2, "Invalid candidate");
+        require(dispute.winner == 0, "Dispute closed");
+        
+        dispute.winner = winner;
+
+        uint grossPrize = dispute.total1 + dispute.total2;
+        uint comission = (grossPrize * fee) / 1e4; // 1e4 = 1 * 10^4
+        netPrize = grossPrize - comission;
+
+        payable(owner).transfer(comission);
+    }
+
+    function claim() external {
+        Bet memory userBet = allBets[msg.sender];
+        require(dispute.winner > 0 && dispute.winner == userBet.candidate && userBet.claimed == 0, "Invalid claim");
+
+        uint winnerAmount = dispute.winner == 1 ? dispute.total1 : dispute.total2;
+        uint ratio = (userBet.ammount * 1e4) / winnerAmount;
+        uint individualPrize = netPrize * ratio / 1e4;
+        allBets[msg.sender].claimed = individualPrize;
+        payable(msg.sender).transfer(individualPrize);
     }
 
 }

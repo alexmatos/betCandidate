@@ -11,6 +11,60 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "allBets",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "ammount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "candidate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "claimed",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "candidate",
+						"type": "uint256"
+					}
+				],
+				"name": "bet",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claim",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "dispute",
 				"outputs": [
@@ -52,6 +106,32 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "winner",
+						"type": "uint256"
+					}
+				],
+				"name": "finish",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "netPrize",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -82,11 +162,11 @@
 	},
 	"sources": {
 		"contracts/BetCandidate.sol": {
-			"keccak256": "0x0ede26ea2922932ca54c59ccc4f8e194df11bb312cf7f6f656ad3293bb1faa22",
+			"keccak256": "0xfcd3b8e790cf2822cc090f6a51fb2bf40766120ddabc966eff0efb81afcca2b9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3ca938850a506f142c16f1c602947e9eb3fc17bf45cd003aa227caba0479cf40",
-				"dweb:/ipfs/QmZc9oNaNMBU5eGK5mfUwchrx8zpCs4ngtB8E8Reujmp9F"
+				"bzz-raw://e3e363cb244d591e9fbfb1725dff200fb7adf69e35da0f8d28387d111575d6d8",
+				"dweb:/ipfs/QmRYBd8iAM7nuzxz8MyZ2eyk28jw1Racw4wFik32qkHfZc"
 			]
 		}
 	},
