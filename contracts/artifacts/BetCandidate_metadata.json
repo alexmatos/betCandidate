@@ -155,18 +155,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"contracts/BetCandidate.sol": {
-			"keccak256": "0xfcd3b8e790cf2822cc090f6a51fb2bf40766120ddabc966eff0efb81afcca2b9",
+			"keccak256": "0x46822b6be00f950e99f51ba176a3d262c6c26413b6944cd1ec7f2d03c2699a66",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e3e363cb244d591e9fbfb1725dff200fb7adf69e35da0f8d28387d111575d6d8",
-				"dweb:/ipfs/QmRYBd8iAM7nuzxz8MyZ2eyk28jw1Racw4wFik32qkHfZc"
+				"bzz-raw://ad0f047d7e44c6a269c06d5efb05bc9f18480c00997821baaa43e96335df8145",
+				"dweb:/ipfs/QmTtWjqSSzDzQbVeP5AHk7FwCr79GpUha8ewHsFWMjBL48"
 			]
 		}
 	},
